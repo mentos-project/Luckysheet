@@ -1,6 +1,8 @@
 const gulp = require('gulp');
 // gulp core function
 const { src, dest, series, parallel, watch } = require('gulp');
+const replace = require('gulp-replace');
+const rename = require('gulp-rename');
 // gulp compress js
 const uglify = require('gulp-uglify');
 // gulp judgment
@@ -31,7 +33,8 @@ const babel = require('@rollup/plugin-babel').default;
 // const gulpBabel = require('gulp-babel');
 // Distinguish development and production environments
 const production = process.env.NODE_ENV === 'production' ? true : false;
-
+const buildTarget = production ? 'jcjzwebexcel' : 'luckysheet'
+console.log('production', production, buildTarget)
 // uglify js Compression configuration https://github.com/mishoo/UglifyJS#minify-options
 const uglifyOptions = {
     compress: {
@@ -117,6 +120,8 @@ const paths = {
     dist: 'dist',
 };
 
+
+
 // Clear the dist directory
 function clean() {
     return del([paths.dist]);
@@ -187,20 +192,20 @@ async function core() {
     });
 
     bundle.write({
-        file: 'dist/luckysheet.umd.js',
+        file: `dist/${buildTarget}.umd.js`,
         format: 'umd',
-        name: 'luckysheet',
-        sourcemap: true,
+        name: buildTarget,
+        sourcemap: !production,
         inlineDynamicImports:true,
 
     });
 
     if(production){
         bundle.write({
-            file: 'dist/luckysheet.esm.js',
+            file: `dist/${buildTarget}.esm.js`,
             format: 'esm',
-            name: 'luckysheet',
-            sourcemap: true,
+            name: buildTarget,
+            sourcemap: false,
             inlineDynamicImports:true,
         });
     }
@@ -271,9 +276,28 @@ function copyStaticCssImages(){
         .pipe(dest(paths.destStaticCssImages));
 }
 
+const firstUpperCase = ([first, ...rest]) => first.toUpperCase() + rest.join('')
+function replaceCharacter() {
+    return src(`${paths.dist}/**`)
+    .pipe(replace('luckysheet', buildTarget))
+    .pipe(replace('Luckysheet', firstUpperCase(buildTarget)))
+    .pipe(dest(paths.dist))
+}
+function replaceFileName() {
+    return src(`${paths.dist}/**/luckysheet*`)
+      .pipe(rename(function (path) {
+         return {
+             ...path,
+             basename: buildTarget,
+         }
+    }))
+      .pipe(dest(`${paths.dist}/`))
+}
+
 const dev = series(clean, parallel(pluginsCss, plugins, css, pluginsJs, copyStaticHtml, copyStaticFonts, copyStaticAssets, copyStaticImages, copyStaticExpendPlugins, copyStaticDemoData, copyStaticCssImages, core), watcher, serve);
 const build = series(clean, parallel(pluginsCss, plugins, css, pluginsJs, copyStaticHtml, copyStaticFonts, copyStaticAssets, copyStaticImages, copyStaticExpendPlugins, copyStaticDemoData, copyStaticCssImages, core));
-
+const re = series( replaceFileName, replaceCharacter )
 exports.dev = dev;
 exports.build = build;
 exports.default = dev;
+exports.re = re

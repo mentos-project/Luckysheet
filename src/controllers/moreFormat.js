@@ -964,6 +964,10 @@ const luckysheetMoreFormat = {
 
         this.numFmtList = [
             {
+                "name": "+123",
+                "value": "+0;-0;0"
+            },
+            {
                 "name": "1235",
                 "value": "0"
             },
@@ -1056,7 +1060,7 @@ const luckysheetMoreFormat = {
                 "name": "1,234.56",
                 "value": '_(* #,##0.00_);...* "-"??_);_(@_)'
             },
-        ]    
+        ]
 
         $("#luckysheet-modal-dialog-mask").show();
         $("#luckysheet-moreFormat-dialog").remove();
@@ -1127,21 +1131,21 @@ const luckysheetMoreFormat = {
                       '</div>';
         }
 
-        $("body").append(replaceHtml(modelHTML, { 
-            "id": "luckysheet-moreFormat-dialog", 
-            "addclass": "luckysheet-moreFormat-dialog", 
-            "title": title, 
-            "content": content, 
-            "botton": '<button id="luckysheet-moreFormat-dialog-confirm" class="btn btn-primary">'+ locale_button.confirm +'</button><button class="btn btn-default luckysheet-model-close-btn">'+ locale_button.cancel +'</button>', 
-            "style": "z-index:100003" 
+        $("body").append(replaceHtml(modelHTML, {
+            "id": "luckysheet-moreFormat-dialog",
+            "addclass": "luckysheet-moreFormat-dialog",
+            "title": title,
+            "content": content,
+            "botton": '<button id="luckysheet-moreFormat-dialog-confirm" class="btn btn-primary">'+ locale_button.confirm +'</button><button class="btn btn-default luckysheet-model-close-btn">'+ locale_button.cancel +'</button>',
+            "style": "z-index:100003"
         }));
-        let $t = $("#luckysheet-moreFormat-dialog").find(".luckysheet-modal-dialog-content").css("min-width", 400).end(), 
-            myh = $t.outerHeight(), 
+        let $t = $("#luckysheet-moreFormat-dialog").find(".luckysheet-modal-dialog-content").css("min-width", 400).end(),
+            myh = $t.outerHeight(),
             myw = $t.outerWidth();
         let winw = $(window).width(), winh = $(window).height();
         let scrollLeft = $(document).scrollLeft(), scrollTop = $(document).scrollTop();
         $("#luckysheet-moreFormat-dialog").css({ "left": (winw + scrollLeft - myw) / 2, "top": (winh + scrollTop - myh) / 3 }).show();
-        
+
         $("#luckysheet-moreFormat-dialog .listbox .listItem").eq(0).addClass("on");
     },
     init: function(){
@@ -1172,7 +1176,7 @@ const luckysheetMoreFormat = {
                 if(decimal.toString() == "NaN" || decimal < 0 || decimal > 9){
                     if(isEditMode()){
                         alert("小数位数必须在0-9之间！");
-                    }   
+                    }
                     else{
                         tooltip.info("小数位数必须在0-9之间！", "");
                     }

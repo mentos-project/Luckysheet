@@ -1,5 +1,13 @@
 export default {
-    functionlist:[{
+    functionlist:[
+        {
+            'n': 'INTEGRAL',
+            't': 0,
+            'd': '求积分。',
+            'm': [3, 3],
+            'a': '对范围中符合指定条件的值求积分',
+        },
+      {
         'n': 'SUMIF',
         't': 0,
         'd': '对范围中符合指定条件的值求和。',
@@ -9065,6 +9073,8 @@ export default {
         font: '字体',
         fontSize: '字号大小',
         bold: '粗体 (Ctrl+B)',
+        sup: '上标',
+        sub: '下标',
         italic: '斜体 (Ctrl+I)',
         strikethrough: '删除线 (Alt+Shift+5)',
         underline: '下划线',
@@ -9096,7 +9106,7 @@ export default {
         moreFunction: '更多函数',
         conditionalFormat: '条件格式',
         postil: '批注',
-        pivotTable: '数据透视表', 
+        pivotTable: '数据透视表',
         chart: '图表',
         screenshot: '截图',
         splitColumn: '分列',
@@ -9519,8 +9529,8 @@ export default {
 
     },
     filter:{
-        "filter":"筛选", 
-        "clearFilter":"清除筛选", 
+        "filter":"筛选",
+        "clearFilter":"清除筛选",
 
         sortByAsc:"以A-Z升序排列",
         sortByDesc:"以Z-A降序排列",
@@ -9691,7 +9701,7 @@ export default {
         "semicolon":"分号",
         "comma":"逗号",
         "space":"空格",
-        
+
     },
     findAndReplace:{
         find:"查找",

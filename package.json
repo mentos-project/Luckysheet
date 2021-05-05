@@ -1,9 +1,9 @@
 {
-  "name": "luckysheet",
+  "name": "jcjz-webexcel",
   "version": "2.1.13",
-  "main": "dist/luckysheet.cjs.js",
-  "module": "dist/luckysheet.esm.js",
-  "browser": "dist/luckysheet.umd.js",
+  "main": "dist/jcjz-webexcel.cjs.js",
+  "module": "dist/jcjz-webexcel.esm.js",
+  "browser": "dist/jcjz-webexcel.umd.js",
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
@@ -22,6 +22,8 @@
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-if": "^3.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-useref": "^4.0.1",
     "http-proxy-middleware": "^1.0.6",
@@ -40,11 +42,15 @@
     "dayjs": "^1.9.6",
     "flatpickr": "^4.6.6",
     "jquery": "^2.2.4",
+    "mathjs": "^3.20.2",
+    "mathjs-simple-integral": "^0.1.1",
     "numeral": "^2.0.6",
     "pako": "^1.0.11"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production gulp build",
+    "re": "cross-env NODE_ENV=production gulp re",
+    "build-re": "yarn build && yarn re",
     "dev": "cross-env NODE_ENV=development gulp dev",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",

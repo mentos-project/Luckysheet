@@ -16,7 +16,7 @@ import { getObjType, ABCatNum, chatatABC, numFormat } from '../utils/util';
 import Store from '../store';
 import dayjs from 'dayjs';
 import numeral from 'numeral';
-
+import mathHelp from './math'
 //公式函数计算
 const functionImplementation = {
     "SUM": function() {
@@ -3336,7 +3336,7 @@ const functionImplementation = {
                         }
                         else{
                             if (typeof value !== 'string') {
-                                if (new Function("return " + value + criter)()) {  
+                                if (new Function("return " + value + criter)()) {
                                     matches++;
                                 }
                             }
@@ -27587,6 +27587,13 @@ const functionImplementation = {
             return [formula.error.v, err];
         }
     },
+    "INTEGRAL": function () {
+        const symbolNode = func_methods.getFirstValue(arguments[0])
+        const targetKey =  func_methods.getFirstValue(arguments[1])
+        const target =  func_methods.getFirstValue(arguments[2])
+        const res = mathHelp.parse(mathHelp.format(mathHelp.integral(symbolNode, targetKey))).compile().eval({[targetKey] : Number(target)});
+        return res
+    }
 };
 
 export default functionImplementation;

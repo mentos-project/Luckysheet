@@ -53,7 +53,7 @@ export function viewChange(curType, preType){
         printLineAndNumberCreate(currentSheet);
     }
 
-    
+
 
     let curZoom = currentSheet.config.sheetViewZoom[type];
     if(curZoom==null){
@@ -86,7 +86,7 @@ function printLineAndNumberDelete(sheet){
 }
 
 function printLineAndNumberCreate(sheet){
-    
+
 }
 
 function switchViewBtn($t){

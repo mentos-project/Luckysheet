@@ -6652,7 +6652,7 @@ export function refreshFormula (success) {
  * @param {Array} data 工作簿配置，可以包含多个表
  * @param {Object} options 可选参数
  * @param {Function} options.success 操作结束的回调函数
- * 
+ *
  */
 export function updataSheet (options = {}) {
     let {data, success} = options
@@ -6728,10 +6728,11 @@ export function refreshMenuButtonFocus(data ,r,c , success){
 export function checkTheStatusOfTheSelectedCells(type,status){
 
     /* 获取选区内所有的单元格-扁平后的处理 */
-    let cells = getRangeWithFlatten();  
-
+    let cells = getRangeWithFlatten();
+    console.log('Store.flowdata', Store.flowdata)
     let flag = cells.every(({r,c})=>{
         let cell = Store.flowdata[r][c];
+
         if(cell == null){
             return false;
         }
