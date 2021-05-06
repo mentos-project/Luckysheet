@@ -3025,6 +3025,8 @@ export function setRangeMerge(type, options = {}) {
         if(has_PartMC){
             return tooltip.info('Cannot perform this operation on partially merged cells', '');
         }
+    }else {
+        cfg.merge = {}
     }
 
     //选区是否含有 合并的单元格
@@ -6729,7 +6731,6 @@ export function checkTheStatusOfTheSelectedCells(type,status){
 
     /* 获取选区内所有的单元格-扁平后的处理 */
     let cells = getRangeWithFlatten();
-    console.log('Store.flowdata', Store.flowdata)
     let flag = cells.every(({r,c})=>{
         let cell = Store.flowdata[r][c];
 
