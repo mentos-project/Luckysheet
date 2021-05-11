@@ -89,17 +89,17 @@ export default function luckysheetsizeauto(isRefreshCanvas=true) {
     const locale_toolbar = _locale.toolbar;
     let ismore = false,
         toolbarW = 0,
-        morebtn = `<div class="luckysheet-toolbar-button luckysheet-inline-block" data-tips="${locale_toolbar.toolMoreTip}" id="luckysheet-icon-morebtn" role="button" style="user-select: none;"> 
-            <div class="luckysheet-toolbar-button-outer-box luckysheet-inline-block" style="user-select: none;"> 
+        morebtn = `<div class="luckysheet-toolbar-button luckysheet-inline-block" data-tips="${locale_toolbar.toolMoreTip}" id="luckysheet-icon-morebtn" role="button" style="user-select: none;">
+            <div class="luckysheet-toolbar-button-outer-box luckysheet-inline-block" style="user-select: none;">
                 <div class="luckysheet-toolbar-button-inner-box luckysheet-inline-block" style="user-select: none;">
 
                     <div class="luckysheet-toolbar-menu-button-caption luckysheet-inline-block" style="user-select: none;">
                         ${locale_toolbar.toolMore}
-                    </div> 
+                    </div>
                     <div class="luckysheet-toolbar-menu-button-dropdown luckysheet-inline-block iconfont luckysheet-iconfont-xiayige" style="user-select: none;font-size:12px;">
                     </div>
 
-                </div> 
+                </div>
             </div>
          </div>`,
          // Add style left:$$('.luckysheet') left, when the worksheet does not fill the full screen
@@ -117,7 +117,7 @@ export default function luckysheetsizeauto(isRefreshCanvas=true) {
         const $t = $(this)[0];
         const $container =  $("#luckysheet-wa-editor")[0];
 
-        $container.appendChild(document.createTextNode(" "));
+        // $container.appendChild(document.createTextNode(" "));
         $container.appendChild($t);
     });
 
@@ -194,7 +194,7 @@ export default function luckysheetsizeauto(isRefreshCanvas=true) {
                 const toolCloseHTML = `
                 <div class="luckysheet-toolbar-menu-button-caption luckysheet-inline-block" style="user-select: none;">
                     ${locale_toolbar.toolClose}
-                </div> 
+                </div>
                 <div class="luckysheet-toolbar-menu-button-dropdown luckysheet-inline-block iconfont luckysheet-iconfont-shangyige" style="user-select: none;font-size:12px;">
                 </div>
                 `
@@ -205,7 +205,7 @@ export default function luckysheetsizeauto(isRefreshCanvas=true) {
                 const toolMoreHTML = `
                 <div class="luckysheet-toolbar-menu-button-caption luckysheet-inline-block" style="user-select: none;">
                     ${locale_toolbar.toolMore}
-                </div> 
+                </div>
                 <div class="luckysheet-toolbar-menu-button-dropdown luckysheet-inline-block iconfont luckysheet-iconfont-xiayige" style="user-select: none;font-size:12px;">
                 </div>
                 `
@@ -331,10 +331,10 @@ export function menuToolBarWidth() {
     const toobarWidths = Store.toobarObject.toobarWidths = [];
     const toobarElements = Store.toobarObject.toobarElements = [];
     const toolbarConfig = Store.toobarObject.toolbarConfig = buildBoolBarConfig();
-    
+
     /**
      * 基于 showtoolbarConfig 配置 动态生成 toolbarConfig
-     * @returns {object} 
+     * @returns {object}
      * @input showtoolbarConfig = ['undo', 'redo', '|' , 'font' , 'moreFormats', '|']
      * {
      *     undo: {ele: '#luckysheet-icon-undo', index: 0},
@@ -388,19 +388,22 @@ export function menuToolBarWidth() {
                 config[s] = false;
             }
         }
-        
+
         if (JSON.stringify(showtoolbarConfig) !== '{}') {
             if(showtoolbarConfig.hasOwnProperty('undoRedo')){
                 config.undo = config.redo = showtoolbarConfig.undoRedo;
-                delete showtoolbarConfig.undoRedo;
+                // delete showtoolbarConfig.undoRedo;
             }
             Object.assign(config, showtoolbarConfig);
-            
+
             let current,next;
             let index = 0;
             for (let i = 0; i<defaultToolbar.length; i++) {
                 current = defaultToolbar[i];
                 next = defaultToolbar[i + 1];
+                if(config[current] === false) {
+                    continue;
+                }
                 if (current !== '|') {
                     obj[current] = {
                         ele: toolbarIdMap[current],
@@ -437,7 +440,6 @@ export function menuToolBarWidth() {
             return -1;
         }
     }
-
     toobarElements.forEach((curr,index,arr)=>{
         arr[index] = curr.ele;
 
