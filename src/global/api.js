@@ -2190,7 +2190,7 @@ export function getRangeHtml(options = {}) {
         cpdata += "</tr>";
     }
 
-    cpdata = '<table data-type="luckysheet_copy_action_table">' + colgroup + cpdata + '</table>';
+    cpdata = '<table data-type="luckysheet_copy_action_table" style="border-collapse: collapse;">' + colgroup + cpdata + '</table>';
     console.log(cpdata)
     return cpdata;
 }

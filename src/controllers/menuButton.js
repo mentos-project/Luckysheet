@@ -2874,7 +2874,7 @@ const menuButton = {
                         newTab.onload = () => {
                             newTab.document.write(`${data}`);
                             newTab.print();
-                            newTab.close();
+                            // newTab.close();
                             // newTab.location.reload();
                         }
                     }
