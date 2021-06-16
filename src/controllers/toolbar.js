@@ -26,6 +26,8 @@ export const defaultToolbar = [
     'italic',
     'strikethrough',
     'underline',
+    'subscript',
+    'superscript',
     'textColor',
     '|',
 
@@ -56,6 +58,7 @@ export const defaultToolbar = [
     'screenshot',
     'findAndReplace',
     'protection',
+    'printRange',
     'print'
 ];
 
@@ -97,7 +100,10 @@ export const toolbarIdMap = {
     screenshot: '#luckysheet-chart-btn-screenshot', //'screenshot'
     findAndReplace: '#luckysheet-icon-seachmore', //'Find and Replace'
     protection: '#luckysheet-icon-protection', // 'Worksheet protection'
-    print: '#luckysheet-icon-print' // 'print'
+    print: '#luckysheet-icon-print', // 'print'
+    printRange: '#luckysheet-icon-print-range', // 打印区域
+    subscript: '#luckysheet-icon-subscript', // 下标
+    superscript: '#luckysheet-icon-superscript' // 上标
 };
 
 // 创建工具栏按钮的html
@@ -312,6 +318,48 @@ export function createToolbarHtml() {
                 </div>
             </div>
         </div>`, //'Underline (Alt+Shift+6)'
+        subscript: `<div class="luckysheet-toolbar-button luckysheet-inline-block" data-tips="${toolbar.subscript}"
+        id="luckysheet-icon-subscript" role="button" style="user-select: none;">
+            <div class="luckysheet-toolbar-button-outer-box luckysheet-inline-block"
+            style="user-select: none;">
+                <div class="luckysheet-toolbar-button-inner-box luckysheet-inline-block"
+                style="user-select: none;">
+                    <div class="luckysheet-icon luckysheet-inline-block " style="user-select: none;">
+                        <div aria-hidden="true" class="luckysheet-icon-img-container luckysheet-icon-img luckysheet-icon-subscript iconfont luckysheet-iconfont-wenbenxiahuaxian"
+                        style="user-select: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`,
+        superscript: `<div class="luckysheet-toolbar-button luckysheet-inline-block" data-tips="${toolbar.superscript}"
+        id="luckysheet-icon-superscript" role="button" style="user-select: none;">
+            <div class="luckysheet-toolbar-button-outer-box luckysheet-inline-block"
+            style="user-select: none;">
+                <div class="luckysheet-toolbar-button-inner-box luckysheet-inline-block"
+                style="user-select: none;">
+                    <div class="luckysheet-icon luckysheet-inline-block " style="user-select: none;">
+                        <div aria-hidden="true" class="luckysheet-icon-img-container luckysheet-icon-img luckysheet-icon-superscript iconfont luckysheet-iconfont-wenbenxiahuaxian"
+                        style="user-select: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`,
+        printRange: `<div class="luckysheet-toolbar-button luckysheet-inline-block" data-tips="${toolbar.savePrintRange}"
+        id="luckysheet-icon-print-range" role="button" style="user-select: none;">
+            <div class="luckysheet-toolbar-button-outer-box luckysheet-inline-block"
+            style="user-select: none;">
+                <div class="luckysheet-toolbar-button-inner-box luckysheet-inline-block"
+                style="user-select: none;">
+                    <div class="luckysheet-icon luckysheet-inline-block " style="user-select: none;">
+                        <div aria-hidden="true" class="luckysheet-icon-img-container luckysheet-icon-img luckysheet-icon-print-range iconfont luckysheet-iconfont-wenbenxiahuaxian"
+                        style="user-select: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`,
         textColor: `<div class="luckysheet-toolbar-button-split-left luckysheet-toolbar-button luckysheet-inline-block luckysheet-icon-text-color"
         data-tips="${toolbar.textColor}" id="luckysheet-icon-text-color" role="button" style="user-select: none;">
             <div class="luckysheet-toolbar-button-outer-box luckysheet-inline-block"

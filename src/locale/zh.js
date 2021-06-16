@@ -9073,8 +9073,8 @@ export default {
         font: '字体',
         fontSize: '字号大小',
         bold: '粗体 (Ctrl+B)',
-        sup: '上标',
-        sub: '下标',
+        superscript: '上标',
+        subscript: '下标',
         italic: '斜体 (Ctrl+I)',
         strikethrough: '删除线 (Alt+Shift+5)',
         underline: '下划线',
@@ -9126,6 +9126,7 @@ export default {
 
         cellFormat:"设置单元格格式",
         print:"打印",
+        savePrintRange: '保存打印选区',
     },
     alternatingColors:{
         applyRange: '应用范围',

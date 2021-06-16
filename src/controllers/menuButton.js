@@ -37,7 +37,11 @@ import { replaceHtml, getObjType, rgbTohex, mouseclickposition, luckysheetfontfo
 import {openProtectionModal,checkProtectionFormatCells,checkProtectionNotEnable} from './protection';
 import Store from '../store';
 import locale from '../locale/locale';
-import {checkTheStatusOfTheSelectedCells} from '../global/api';
+import {
+    checkTheStatusOfTheSelectedCells,
+    getRangeAxis,
+    getRangeHtml,
+} from '../global/api'
 
 const menuButton = {
     "menu": '<div class="luckysheet-cols-menu luckysheet-rightgclick-menu luckysheet-menuButton ${subclass} luckysheet-mousedown-cancel" id="luckysheet-icon-${id}-menuButton">${item}</div>',
@@ -2204,26 +2208,26 @@ const menuButton = {
         });
 
         // 上标
-        $("#luckysheet-icon-sup").mousedown(function(e){
+        $("#luckysheet-icon-superscript").mousedown(function(e){
             hideMenuByCancel(e);
             e.stopPropagation();
         }).click(function(){
             let d = editor.deepCopyFlowData(Store.flowdata);
-            let flag = checkTheStatusOfTheSelectedCells("sup",1);
+            let flag = checkTheStatusOfTheSelectedCells("superscript",1);
             let foucsStatus = flag ? 0 : 1;
 
-            _this.updateFormat(d, "sup", foucsStatus);
+            _this.updateFormat(d, "superscript", foucsStatus);
         });
         // 下标
-        $("#luckysheet-icon-sub").mousedown(function(e){
+        $("#luckysheet-icon-subscript").mousedown(function(e){
             hideMenuByCancel(e);
             e.stopPropagation();
         }).click(function(){
             let d = editor.deepCopyFlowData(Store.flowdata);
-            let flag = checkTheStatusOfTheSelectedCells("sub",1);
+            let flag = checkTheStatusOfTheSelectedCells("subscript",1);
             let foucsStatus = flag ? 0 : 1;
 
-            _this.updateFormat(d, "sub", foucsStatus);
+            _this.updateFormat(d, "subscript", foucsStatus);
         });
 
         //下划线
@@ -2819,7 +2823,11 @@ const menuButton = {
             let sheetFile = sheetmanage.getSheetByIndex();
             openProtectionModal(sheetFile);
         });
-
+        // 保存选区
+        $("#luckysheet-icon-print-range").click(function () {
+            let ranges = getRangeAxis()
+            console.log('ranges', ranges)
+        })
         //print
         $("#luckysheet-icon-print").click(function(){
             $(".header").addClass("printHideCss");
@@ -2861,7 +2869,14 @@ const menuButton = {
 
                     }
                     else if(itemvalue == "areas" || itemvalue == "rows" || itemvalue == "columns"){ //range
-                        alert("areas");
+                        const newTab = window.open()
+                        const data = getRangeHtml()
+                        newTab.onload = () => {
+                            newTab.document.write(`${data}`);
+                            newTab.print();
+                            newTab.close();
+                            // newTab.location.reload();
+                        }
                     }
                 });
             }
@@ -3130,7 +3145,6 @@ const menuButton = {
 
         let canvasElement = document.createElement('canvas');
         let canvas = canvasElement.getContext("2d");
-
         if(attr in inlineStyleAffectAttribute ){
             if (parseInt($("#luckysheet-input-box").css("top")) > 0 ) {
                 let value = $("#luckysheet-input-box").text();
@@ -3167,7 +3181,8 @@ const menuButton = {
                 "RowlChange": true
             }
         }
-
+        console.log('allParam', allParam)
+        console.log('Store', Store)
         jfrefreshgrid(d, Store.luckysheet_select_save, allParam, false);
     },
     updateFormat_mc: function(d, foucsStatus){

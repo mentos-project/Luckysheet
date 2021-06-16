@@ -1693,7 +1693,7 @@ export function getRangeHtml(options = {}) {
         success
     } = {...options}
     range = JSON.parse(JSON.stringify(range));
-
+    console.log('range', range)
     if(getObjType(range) == 'string'){
         if(!formula.iscelldata(range)){
             return tooltip.info("The range parameter is invalid.", "");
@@ -1792,7 +1792,6 @@ export function getRangeHtml(options = {}) {
         let isSameCol = true,
             str_c = range[0].column[0],
             end_c = range[0].column[1];
-
         for (let s = 1; s < range.length; s++) {
             if (range[s].row[0] != str_r || range[s].row[1] != end_r) {
                 isSameRow = false;
@@ -2192,7 +2191,7 @@ export function getRangeHtml(options = {}) {
     }
 
     cpdata = '<table data-type="luckysheet_copy_action_table">' + colgroup + cpdata + '</table>';
-
+    console.log(cpdata)
     return cpdata;
 }
 
