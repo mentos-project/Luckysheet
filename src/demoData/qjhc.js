@@ -1002,12 +1002,12 @@ window.testData = [
             "cs": 3
           },
           "ht": "0",
-          "m": "2021年6月1日",
+          "m": "2021年6月2日",
           "ct": {
             "fa": "yyyy\"年\"M\"月\"d\"日\"",
             "t": "d"
           },
-          "v": 44348
+          "v": 44349
         },
         {
           "mc": {
@@ -1302,12 +1302,12 @@ window.testData = [
             "cs": 3
           },
           "ht": "0",
-          "v": 0,
+          "v": "10",
           "ct": {
             "fa": "General",
             "t": "n"
           },
-          "m": "0"
+          "m": "10"
         },
         {
           "mc": {
@@ -1837,12 +1837,12 @@ window.testData = [
             "cs": 3
           },
           "ht": "0",
-          "v": 0,
+          "v": "100",
           "ct": {
             "fa": "General",
             "t": "n"
           },
-          "m": "0"
+          "m": "100"
         },
         {
           "mc": {
@@ -2641,12 +2641,12 @@ window.testData = [
             "cs": 3
           },
           "f": "=AVERAGE(D11,D12,D13,D14,D15,D16,D17,D18,D19,D20,)",
-          "m": "0.10",
+          "m": "11.10",
           "ct": {
             "fa": "##0.00",
             "t": "n"
           },
-          "v": 0.1,
+          "v": 11.1,
           "ht": "0"
         },
         {
@@ -2770,13 +2770,13 @@ window.testData = [
             "rs": 1,
             "cs": 8
           },
-          "m": "判断依据: -＜（           ）  —第一次测量算术平均值或校准（检定）值; —第二次测量算术平均值或校准（检定）值; —表示最大允许误差;",
           "ct": {
             "fa": "General",
             "t": "g"
           },
-          "v": "判断依据: -＜（           ）  —第一次测量算术平均值或校准（检定）值; —第二次测量算术平均值或校准（检定）值; —表示最大允许误差;",
-          "tb": "2"
+          "v": "判断依据:                  -＜（           ）  —第一次测量算术平均值或校准（检定）值;     —第二次测量算术平均值或校准（检定）值; —表示最大允许误差;",
+          "tb": "2",
+          "m": "判断依据:                  -＜（           ）  —第一次测量算术平均值或校准（检定）值;     —第二次测量算术平均值或校准（检定）值; —表示最大允许误差;"
         },
         {
           "mc": {
@@ -8481,30 +8481,144 @@ window.testData = [
           ]
         }
       ],
-      "rowhidden": {}
+      "rowhidden": {},
+      "authority": {
+        "password": "",
+        "algorithmName": "None",
+        "saltValue": null,
+        "hintText": "",
+        "sheet": 0,
+        "selectLockedCells": 1,
+        "selectunLockedCells": 1,
+        "formatCells": 0,
+        "formatColumns": 0,
+        "formatRows": 0,
+        "insertColumns": 0,
+        "insertRows": 0,
+        "insertHyperlinks": 0,
+        "deleteColumns": 0,
+        "deleteRows": 0,
+        "sort": 0,
+        "filter": 0,
+        "usePivotTablereports": 0,
+        "editObjects": 0,
+        "editScenarios": 0,
+        "allowRangeList": [
+          {
+            "name": "Default0",
+            "password": "",
+            "hintText": "",
+            "algorithmName": "None",
+            "saltValue": null,
+            "checkRangePasswordUrl": null,
+            "sqref": "$D$9:$I$20"
+          },
+          {
+            "name": "Default1",
+            "password": "",
+            "hintText": "",
+            "algorithmName": "None",
+            "saltValue": null,
+            "checkRangePasswordUrl": null,
+            "sqref": "$C$3:$D$3"
+          },
+          {
+            "name": "Default2",
+            "password": "",
+            "hintText": "",
+            "algorithmName": "None",
+            "saltValue": null,
+            "checkRangePasswordUrl": null,
+            "sqref": "$F$3"
+          },
+          {
+            "name": "Default3",
+            "password": "",
+            "hintText": "",
+            "algorithmName": "None",
+            "saltValue": null,
+            "checkRangePasswordUrl": null,
+            "sqref": "$H$3:$I$3"
+          },
+          {
+            "name": "Default4",
+            "password": "",
+            "hintText": "",
+            "algorithmName": "None",
+            "saltValue": null,
+            "checkRangePasswordUrl": null,
+            "sqref": "$G$5"
+          },
+          {
+            "name": "Default5",
+            "password": "",
+            "hintText": "",
+            "algorithmName": "None",
+            "saltValue": null,
+            "checkRangePasswordUrl": null,
+            "sqref": "$I$5"
+          },
+          {
+            "name": "Default6",
+            "password": "",
+            "hintText": "",
+            "algorithmName": "None",
+            "saltValue": null,
+            "checkRangePasswordUrl": null,
+            "sqref": "$C$6:$E$6"
+          },
+          {
+            "name": "Default7",
+            "password": "",
+            "hintText": "",
+            "algorithmName": "None",
+            "saltValue": null,
+            "checkRangePasswordUrl": null,
+            "sqref": "$G$6:$I$6"
+          },
+          {
+            "name": "Default8",
+            "password": "",
+            "hintText": "",
+            "algorithmName": "None",
+            "saltValue": null,
+            "checkRangePasswordUrl": null,
+            "sqref": "$C$23:$E$23"
+          },
+          {
+            "name": "Default9",
+            "password": "",
+            "hintText": "",
+            "algorithmName": "None",
+            "saltValue": null,
+            "checkRangePasswordUrl": null,
+            "sqref": "$G$23:$I$23"
+          }
+        ]
+      }
     },
     "index": 0,
     "jfgird_select_save": [],
     "luckysheet_select_save": [
       {
-        "left": 499,
-        "width": 239,
-        "top": 322,
-        "height": 33,
-        "left_move": 499,
-        "width_move": 239,
-        "top_move": 323,
+        "left": 1035,
+        "width": 73,
+        "top": 420,
+        "height": 32,
+        "left_move": 1035,
+        "width_move": 73,
+        "top_move": 420,
         "height_move": 32,
         "row": [
-          9,
-          9
+          12,
+          12
         ],
         "column": [
-          6,
-          8
+          13,
+          13
         ],
-        "row_focus": 9,
-        "column_focus": 6
+        "row_focus": 12,
+        "column_focus": 13
       }
     ],
     "visibledatarow": [
@@ -8661,7 +8775,89 @@ window.testData = [
     "zoomRatio": 1,
     "scrollLeft": 0,
     "scrollTop": 453,
-    "images": {},
+    "images": {
+      "img_hM7aA50M5Ml1_1624259792172": {
+        "type": "3",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAAhCAYAAABjnQNzAAABRmlDQ1BJQ0MgUHJvZmlsZQAAKJFjYGASSSwoyGFhYGDIzSspCnJ3UoiIjFJgf8rAxiDKwMtgwcCTmFxc4BgQ4ANUwgCjUcG3awyMIPqyLsisS9qms5P7vt+b+rggXHYmXyymehTAlZJanAyk/wBxenJBUQkDA2MKkK1cXlIAYncA2SJFQEcB2XNA7HQIewOInQRhHwGrCQlyBrJvANkCyRmJQDMYXwDZOklI4ulIbKi9IMDr464Q6hMS5Bju6eJKwL0kg5LUihIQ7ZxfUFmUmZ5RouAIDKVUBc+8ZD0dBSMDI0MGBlCYQ1R/vgEOS0YxDoRYgRgDg8UMoOBDhFg80A/b5RgY+PsQYmpA/wp4MTAc3FeQWJQIdwDjN5biNGMjCJt7OwMD67T//z+HMzCwazIw/L3+///v7f///13GwMB8i4HhwDcAQeNhEmX+4tQAAAA4ZVhJZk1NACoAAAAIAAGHaQAEAAAAAQAAABoAAAAAAAKgAgAEAAAAAQAAADmgAwAEAAAAAQAAACEAAAAAxMl02QAAAt1JREFUWAntWM1LYlEUP5qLsp2ghIuIEIKQIJFokdROQ5eCusw/wD+lwFkFAy2CWQXGFDm5UREbETfOJpUWuSgUxI9ZOGrYnXce4+Pd3n3XYBR68Q487jm/37kf55z7IRqIIPDJxfjJ4xPD04P8LFXWK6lXUkMZME3W2ul04PLycmJSbSgUArPZTGEs4+zsjAWL2NHRkSo3b8IgfyfH4zFzvoWFBSb+Fvzf/m/Hm5VNBTmrQT/aOPrt+tEqIl8P3h+JREIOqeqa3K6j0Qjsdju02214eXmBaXeGJrfr4+MjtFoteH19hW63q1rBCUEFmUwmwWAwTDixXV5epmyegZNi/93dXcnNaDTCYDCQ7PcqvD6bm5vSMDabTdLVFCrIw8NDyGazsLW1JfrjRJix9woGdHt7S7nj+7q4uEhhPKNYLMHxcRySyRTTrVQqgcPhkDiLxQLValWymQq+k3IRqkGExYqQcLhJv9+X05JeLv8iNzc/CLZywf5CNUWo2WzKKa6eSHwnJydfSD7/k+uXz+cJziGXSqUiNxU6VUnMAm63eDwOTqcTIpEILC0tMZPT7/+BXu83YCsX7J9KpcDlcoHH45FTXH19fQ2E1cH9fYV7zmKxmOJI+f1+7tg4sEJqtRr+W0DhXq+X3N3dUZiaMRwOiclkIk9PT5TL6uoqwY8nws9Lcnr6lZyff1O4XV1dEeHZUOA7Ozvctak+ISsrK9BoNKgMZTIZODg4oDA14+LiAoLBoIKu1+tCte7B5/MpuGnA9vY2WK1WphvessVikcnR5fqXo4eHB+GslRUZS6fTCkwN2NjYYFLRaJT0ej0mNy+QCjKXy5H9/X0SDoeZ800LEvm9vT3idruZ/RF8e2moOs6QoILE2/D6+lp1+GlBYkfs//z8zBwjEAgQ/AqFApOfF6h6JtmbW5uo4gnRZhj8VetB8vOjHVavpHZqxV+pXkl+frTD6pXUTq34K/0LqJ/GBx50kYoAAAAASUVORK5CYII=",
+        "originWidth": 57,
+        "originHeight": 33,
+        "default": {
+          "width": 43,
+          "height": 17,
+          "left": 141,
+          "top": 692
+        },
+        "crop": {
+          "width": 43,
+          "height": 17,
+          "offsetLeft": 0,
+          "offsetTop": 0
+        },
+        "isFixedPos": false,
+        "fixedLeft": 120,
+        "fixedTop": 576,
+        "border": {
+          "width": 0,
+          "radius": 0,
+          "style": "solid",
+          "color": "#000"
+        }
+      },
+      "img_eIllm501aezi_1624262987872": {
+        "type": "3",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAYCAYAAAAlBadpAAABRmlDQ1BJQ0MgUHJvZmlsZQAAKJFjYGASSSwoyGFhYGDIzSspCnJ3UoiIjFJgf8rAxiDKwMtgwcCTmFxc4BgQ4ANUwgCjUcG3awyMIPqyLsisS9qms5P7vt+b+rggXHYmXyymehTAlZJanAyk/wBxenJBUQkDA2MKkK1cXlIAYncA2SJFQEcB2XNA7HQIewOInQRhHwGrCQlyBrJvANkCyRmJQDMYXwDZOklI4ulIbKi9IMDr464Q6hMS5Bju6eJKwL0kg5LUihIQ7ZxfUFmUmZ5RouAIDKVUBc+8ZD0dBSMDI0MGBlCYQ1R/vgEOS0YxDoRYgRgDg8UMoOBDhFg80A/b5RgY+PsQYmpA/wp4MTAc3FeQWJQIdwDjN5biNGMjCJt7OwMD67T//z+HMzCwazIw/L3+///v7f///13GwMB8i4HhwDcAQeNhEmX+4tQAAAA4ZVhJZk1NACoAAAAIAAGHaQAEAAAAAQAAABoAAAAAAAKgAgAEAAAAAQAAAA+gAwAEAAAAAQAAABgAAAAA9j6yoQAAAO1JREFUOBHlU00ORDAUbms2OIBDiDNYOgIHcxALicRGROIQEgewsmPFo53x0lYnmbExybyN76dfX/OqFPYiF4tdzInYfeGHfOxxHEmWZbKEOI5j4jgOcg6oPrBlWZQFB7Es64D4PYXR+QDcN7Af6lwUBaGUKuNyXVfhSPhV6VXXNQRBIOR5nmGaJn2J4MSkrusKjDFh7T/Nd2GeStMUfN8H27ZN+wvN2Jk7Xdfxp6oEoyiCtm1RU12Un8DzPE0BqKoKtbf33Pc9KcsSB2sEuM0LNE0DYRhCkiS6Jbjc+XTsYRggz3NjkIty+B9f1QZad6NDYzAe3QAAAABJRU5ErkJggg==",
+        "originWidth": 15,
+        "originHeight": 24,
+        "default": {
+          "width": 12,
+          "height": 19,
+          "left": 270,
+          "top": 691
+        },
+        "crop": {
+          "width": 12,
+          "height": 19,
+          "offsetLeft": 0,
+          "offsetTop": 0
+        },
+        "isFixedPos": false,
+        "fixedLeft": 120,
+        "fixedTop": 805,
+        "border": {
+          "width": 0,
+          "radius": 0,
+          "style": "solid",
+          "color": "#000"
+        }
+      },
+      "img_MKe52htHr03c_1624263016591": {
+        "type": "3",
+        "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAcCAYAAACDBoQZAAABRmlDQ1BJQ0MgUHJvZmlsZQAAKJFjYGASSSwoyGFhYGDIzSspCnJ3UoiIjFJgf8rAxiDKwMtgwcCTmFxc4BgQ4ANUwgCjUcG3awyMIPqyLsisS9qms5P7vt+b+rggXHYmXyymehTAlZJanAyk/wBxenJBUQkDA2MKkK1cXlIAYncA2SJFQEcB2XNA7HQIewOInQRhHwGrCQlyBrJvANkCyRmJQDMYXwDZOklI4ulIbKi9IMDr464Q6hMS5Bju6eJKwL0kg5LUihIQ7ZxfUFmUmZ5RouAIDKVUBc+8ZD0dBSMDI0MGBlCYQ1R/vgEOS0YxDoRYgRgDg8UMoOBDhFg80A/b5RgY+PsQYmpA/wp4MTAc3FeQWJQIdwDjN5biNGMjCJt7OwMD67T//z+HMzCwazIw/L3+///v7f///13GwMB8i4HhwDcAQeNhEmX+4tQAAAA4ZVhJZk1NACoAAAAIAAGHaQAEAAAAAQAAABoAAAAAAAKgAgAEAAAAAQAAABOgAwAEAAAAAQAAABwAAAAAgfflTQAAAnpJREFUSA2NVDtyE0EQnVmpCuM7IDIcgx24jI8gLqGD4RynKlxyotQcQZGdyOBQgSnhwtu815+dWWmpUpe005/Xr3tnejYLJaWU8Q8x2727wQokWZAXmdCdKyAHr70aNCBNguK6eQ54FiKxXDaHf6+zAhpgrCvGm/Vggs6iL4AVUyfVYOwPAeJEezAEQGZRAwVjzWI6t5riXFh36FAMZJCOYxcSCUGlaH8EbbxbTmONFL9XzOnq6itCCGQePkj5gymtpNlshhg33wZD09nQ/0bjb/uKIFLAkKFwGBtkNaORdQabtWoxMiLRweFSmFTDg13rnklFpNcBrATZY6gECyvCmoNJj5JRMcEuwNBqdJSAx+slDstIGbHTpKY+Zg+dXAeg0onVshw6C5l30afy66LpAJQm4IHhNg+JUsjUxJs5oMUI5Nyki/NzjdDdjJq03W7dBoHz87QpSqaqk9g+YZoBXCwWOhIEsvbx8dt0dPRGO6JNsdUtzplJi3mE6KN4MsrS+evpKZy29oGKsRtgRawKi7BLtM75Xtzepo+fTtPv5+e0Wq3Ub/3YaSocD70LWqbqxsvaAv/LnxcZj8eyXq97XU8mE5m8ew9cJGOTe8mVERCCr6+/VZGi3j88yM33m84xQFZoAvXh5CTU3ooLL5vNxnxI2ydzruVyKZ8vL+Xs7LRHUL2VtO0rYuXgjGy/GSWYz+fy8/GxT+bWdDqVL/jf3f3o4sOfID9NO7U4XR65Bqh0WvFgaGmEhG63wweRwU4NpVy6uO6EcdAhRhPQWDU0+KgRhc47c8poraPfc3jd+gMQjdsVLLXjlsNj9FUHEdPVvv2aGPWwN/8AqEBTdwbS3UQAAAAASUVORK5CYII=",
+        "originWidth": 19,
+        "originHeight": 28,
+        "default": {
+          "width": 13,
+          "height": 19,
+          "left": 541,
+          "top": 691
+        },
+        "crop": {
+          "width": 13,
+          "height": 19,
+          "offsetLeft": 0,
+          "offsetTop": 0
+        },
+        "isFixedPos": false,
+        "fixedLeft": 120,
+        "fixedTop": 296,
+        "border": {
+          "width": 0,
+          "radius": 0,
+          "style": "solid",
+          "color": "#000"
+        }
+      }
+    },
     "dynamicArray": [],
     "calcChain": [
       {
@@ -9497,12 +9693,12 @@ window.testData = [
             "cs": 3
           },
           "ht": "0",
-          "m": "2021年6月1日",
+          "m": "2021年6月2日",
           "ct": {
             "fa": "yyyy\"年\"M\"月\"d\"日\"",
             "t": "d"
           },
-          "v": 44348
+          "v": 44349
         }
       },
       {
@@ -9753,12 +9949,12 @@ window.testData = [
             "cs": 3
           },
           "ht": "0",
-          "v": 0,
+          "v": "10",
           "ct": {
             "fa": "General",
             "t": "n"
           },
-          "m": "0"
+          "m": "10"
         }
       },
       {
@@ -10200,12 +10396,12 @@ window.testData = [
             "cs": 3
           },
           "ht": "0",
-          "v": 0,
+          "v": "100",
           "ct": {
             "fa": "General",
             "t": "n"
           },
-          "m": "0"
+          "m": "100"
         }
       },
       {
@@ -10872,12 +11068,12 @@ window.testData = [
             "cs": 3
           },
           "f": "=AVERAGE(D11,D12,D13,D14,D15,D16,D17,D18,D19,D20,)",
-          "m": "0.10",
+          "m": "11.10",
           "ct": {
             "fa": "##0.00",
             "t": "n"
           },
-          "v": 0.1,
+          "v": 11.1,
           "ht": "0"
         }
       },
@@ -10971,13 +11167,13 @@ window.testData = [
             "rs": 1,
             "cs": 8
           },
-          "m": "判断依据: -＜（           ）  —第一次测量算术平均值或校准（检定）值; —第二次测量算术平均值或校准（检定）值; —表示最大允许误差;",
           "ct": {
             "fa": "General",
             "t": "g"
           },
-          "v": "判断依据: -＜（           ）  —第一次测量算术平均值或校准（检定）值; —第二次测量算术平均值或校准（检定）值; —表示最大允许误差;",
-          "tb": "2"
+          "v": "判断依据:                  -＜（           ）  —第一次测量算术平均值或校准（检定）值;     —第二次测量算术平均值或校准（检定）值; —表示最大允许误差;",
+          "tb": "2",
+          "m": "判断依据:                  -＜（           ）  —第一次测量算术平均值或校准（检定）值;     —第二次测量算术平均值或校准（检定）值; —表示最大允许误差;"
         }
       },
       {
