@@ -5,6 +5,8 @@ import { getObjType, camel2split } from '../utils/util';
 
 // 默认的工具栏按钮
 export const defaultToolbar = [
+    'save',
+    '|',
     'undo',
     'redo',
     'paintFormat',
@@ -103,7 +105,8 @@ export const toolbarIdMap = {
     print: '#luckysheet-icon-print', // 'print'
     printRange: '#luckysheet-icon-print-range', // 打印区域
     subscript: '#luckysheet-icon-subscript', // 下标
-    superscript: '#luckysheet-icon-superscript' // 上标
+    superscript: '#luckysheet-icon-superscript', // 上标
+    save: '#luckysheet-icon-save' // 保存
 };
 
 // 创建工具栏按钮的html
@@ -112,6 +115,20 @@ export function createToolbarHtml() {
     const fontarray = locale().fontarray;
     const defaultFmtArray = locale().defaultFmt;
     const htmlMap = {
+        save: `<div class="luckysheet-toolbar-button luckysheet-inline-block" data-tips="${toolbar.save}",
+        id="luckysheet-icon-save" role="button" style="user-select: none;">
+            <div class="luckysheet-toolbar-button-outer-box luckysheet-inline-block"
+            style="user-select: none;">
+                <div class="luckysheet-toolbar-button-inner-box luckysheet-inline-block"
+                style="user-select: none;">
+                    <div class="luckysheet-icon luckysheet-inline-block " style="user-select: none;">
+                        <div aria-hidden="true" class="luckysheet-icon-img-container luckysheet-icon-img luckysheet-icon-save wsfont icon-ws-save"
+                        style="user-select: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`,
         undo: `<div class="luckysheet-toolbar-button luckysheet-inline-block" data-tips="${toolbar.undo}"
         id="luckysheet-icon-undo" role="button" style="user-select: none;">
             <div class="luckysheet-toolbar-button-outer-box luckysheet-inline-block"

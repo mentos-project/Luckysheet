@@ -38,10 +38,11 @@ import {openProtectionModal,checkProtectionFormatCells,checkProtectionNotEnable}
 import Store from '../store';
 import locale from '../locale/locale';
 import {
-    checkTheStatusOfTheSelectedCells,
+    checkTheStatusOfTheSelectedCells, getAllSheets,
     getRangeAxis,
     getRangeHtml,
 } from '../global/api'
+import method from '../global/method'
 
 const menuButton = {
     "menu": '<div class="luckysheet-cols-menu luckysheet-rightgclick-menu luckysheet-menuButton ${subclass} luckysheet-mousedown-cancel" id="luckysheet-icon-${id}-menuButton">${item}</div>',
@@ -120,6 +121,12 @@ const menuButton = {
     luckysheetPaintSingle: false,
     initialMenuButton: function(){
         let _this = this;
+
+        // 保存
+        $("#luckysheet-icon-save").click(function (e) {
+            const data = getAllSheets()
+            method.createHookFunction('saveAfter', data)
+        })
 
         //格式刷
         $("#luckysheet-icon-paintformat").click(function(e){
