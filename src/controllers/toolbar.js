@@ -28,8 +28,8 @@ export const defaultToolbar = [
     'italic',
     'strikethrough',
     'underline',
-    'subscript',
-    'superscript',
+    'sub',
+    'sup',
     'textColor',
     '|',
 
@@ -104,8 +104,8 @@ export const toolbarIdMap = {
     protection: '#luckysheet-icon-protection', // 'Worksheet protection'
     print: '#luckysheet-icon-print', // 'print'
     printRange: '#luckysheet-icon-print-range', // 打印区域
-    subscript: '#luckysheet-icon-subscript', // 下标
-    superscript: '#luckysheet-icon-superscript', // 上标
+    sub: '#luckysheet-icon-sub', // 下标
+    sup: '#luckysheet-icon-sup', // 上标
     save: '#luckysheet-icon-save' // 保存
 };
 
@@ -335,28 +335,28 @@ export function createToolbarHtml() {
                 </div>
             </div>
         </div>`, //'Underline (Alt+Shift+6)'
-        subscript: `<div class="luckysheet-toolbar-button luckysheet-inline-block" data-tips="${toolbar.subscript}"
-        id="luckysheet-icon-subscript" role="button" style="user-select: none;">
+        sub: `<div class="luckysheet-toolbar-button luckysheet-inline-block" data-tips="${toolbar.sub}"
+        id="luckysheet-icon-sub" role="button" style="user-select: none;">
             <div class="luckysheet-toolbar-button-outer-box luckysheet-inline-block"
             style="user-select: none;">
                 <div class="luckysheet-toolbar-button-inner-box luckysheet-inline-block"
                 style="user-select: none;">
                     <div class="luckysheet-icon luckysheet-inline-block " style="user-select: none;">
-                        <div aria-hidden="true" class="luckysheet-icon-img-container luckysheet-icon-img luckysheet-icon-subscript iconfont luckysheet-iconfont-wenbenxiahuaxian"
+                        <div aria-hidden="true" class="luckysheet-icon-img-container luckysheet-icon-img luckysheet-icon-sub iconfont luckysheet-iconfont-wenbenxiahuaxian"
                         style="user-select: none;">
                         </div>
                     </div>
                 </div>
             </div>
         </div>`,
-        superscript: `<div class="luckysheet-toolbar-button luckysheet-inline-block" data-tips="${toolbar.superscript}"
-        id="luckysheet-icon-superscript" role="button" style="user-select: none;">
+        sup: `<div class="luckysheet-toolbar-button luckysheet-inline-block" data-tips="${toolbar.sup}"
+        id="luckysheet-icon-sup" role="button" style="user-select: none;">
             <div class="luckysheet-toolbar-button-outer-box luckysheet-inline-block"
             style="user-select: none;">
                 <div class="luckysheet-toolbar-button-inner-box luckysheet-inline-block"
                 style="user-select: none;">
                     <div class="luckysheet-icon luckysheet-inline-block " style="user-select: none;">
-                        <div aria-hidden="true" class="luckysheet-icon-img-container luckysheet-icon-img luckysheet-icon-superscript iconfont luckysheet-iconfont-wenbenxiahuaxian"
+                        <div aria-hidden="true" class="luckysheet-icon-img-container luckysheet-icon-img luckysheet-icon-sup iconfont luckysheet-iconfont-wenbenxiahuaxian"
                         style="user-select: none;">
                         </div>
                     </div>

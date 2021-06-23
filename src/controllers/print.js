@@ -4,6 +4,7 @@ import sheetmanage from './sheetmanage';
 import server from './server';
 import {rowLocationByIndex, colLocationByIndex,mouseposition,rowLocation,colLocation} from '../global/location';
 import Store from '../store';
+import { getRangeHtml } from '../global/api'
 
 let ExcelPlaceholder = {
     "[tabName]":"&A",
@@ -113,5 +114,21 @@ export function printInitial(){
     $("#"+container).find(".luckysheet-print-viewBtn").click(function(){
         switchViewBtn($(this));
     });
+
+}
+
+export function printSettingArea () {
+    const printAreas = Store.luckysheetfile.printAreas
+    const htmlData = getRangeHtml(printAreas)
+    const newTab = window.open()
+    newTab.onload = () => {
+        newTab.document.write(`${htmlData}`);
+        newTab.print();
+        // newTab.close();
+        // newTab.location.reload();
+    }
+}
+
+export function savePrintSettingArea () {
 
 }

@@ -162,9 +162,10 @@ const Store = {
     vt: 1,
     m: '',
     v: '',
-    subscript: 0,
-    superscript: 0,
+    sub: 0,
+    sup: 0,
   },
+  printAreas: ['C18:C20', 'E18:E20', 'G18:H20']
 
 }
 

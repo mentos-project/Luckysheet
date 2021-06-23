@@ -2177,10 +2177,10 @@ function cellTextRender(textInfo, ctx, option){
         ctx.translate(-(textInfo.textLeftAll+pos_x)/Store.zoomRatio, -(pos_y+textInfo.textTopAll)/Store.zoomRatio);
     }
 
-    if (textInfo.subscript) {
+    if (textInfo.sub) {
         ctx.fontSize = '12px'
     }
-    if (textInfo.superscript) {
+    if (textInfo.sup) {
         ctx.fontSize = '12px'
     }
 

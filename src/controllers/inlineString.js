@@ -3,7 +3,7 @@ import {selectTextContent,selectTextContentCross,selectTextContentCollapse} from
 import locale from '../locale/locale';
 import Store from '../store';
 
-export const inlineStyleAffectAttribute = {"bl":1, "it":1 , "ff":1, "cl":1, "un":1,"fs":1,"fc":1, "subscript": 1, "superscript": 1,};
+export const inlineStyleAffectAttribute = {"bl":1, "it":1 , "ff":1, "cl":1, "un":1,"fs":1,"fc":1, "sub": 1, "sup": 1,};
 export const inlineStyleAffectCssName = {"font-weight":1, "font-style":1 , "font-family":1, "text-decoration":1, "border-bottom":1,"font-size":1,"color":1};
 
 export function isInlineStringCell(cell){
@@ -163,10 +163,10 @@ export function updateInlineStringFormat(cell, attr, value, $input){
                     }
 
                 }
-                if (attr === 'subscript') {
+                if (attr === 'sub') {
                     mid = subNums(mid)
 
-                } else if (attr === 'superscript') {
+                } else if (attr === 'sup') {
                     mid = supNums(mid)
                 }
 

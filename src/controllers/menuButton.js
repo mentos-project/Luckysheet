@@ -2215,26 +2215,26 @@ const menuButton = {
         });
 
         // 上标
-        $("#luckysheet-icon-superscript").mousedown(function(e){
+        $("#luckysheet-icon-sup").mousedown(function(e){
             hideMenuByCancel(e);
             e.stopPropagation();
         }).click(function(){
             let d = editor.deepCopyFlowData(Store.flowdata);
-            let flag = checkTheStatusOfTheSelectedCells("superscript",1);
+            let flag = checkTheStatusOfTheSelectedCells("sup",1);
             let foucsStatus = flag ? 0 : 1;
 
-            _this.updateFormat(d, "superscript", foucsStatus);
+            _this.updateFormat(d, "sup", foucsStatus);
         });
         // 下标
-        $("#luckysheet-icon-subscript").mousedown(function(e){
+        $("#luckysheet-icon-sub").mousedown(function(e){
             hideMenuByCancel(e);
             e.stopPropagation();
         }).click(function(){
             let d = editor.deepCopyFlowData(Store.flowdata);
-            let flag = checkTheStatusOfTheSelectedCells("subscript",1);
+            let flag = checkTheStatusOfTheSelectedCells("sub",1);
             let foucsStatus = flag ? 0 : 1;
 
-            _this.updateFormat(d, "subscript", foucsStatus);
+            _this.updateFormat(d, "sub", foucsStatus);
         });
 
         //下划线
@@ -2242,10 +2242,10 @@ const menuButton = {
             hideMenuByCancel(e);
             e.stopPropagation();
         }).click(function(){
+            debugger
             let d = editor.deepCopyFlowData(Store.flowdata);
             let flag = checkTheStatusOfTheSelectedCells("un",1);
             let foucsStatus = flag ? 0 : 1;
-
             _this.updateFormat(d, "un", foucsStatus);
         });
 
@@ -2833,7 +2833,8 @@ const menuButton = {
         // 保存选区
         $("#luckysheet-icon-print-range").click(function () {
             let ranges = getRangeAxis()
-            console.log('ranges', ranges)
+            Store.luckysheetfile[Store.orderbyindex].printAreas = ranges
+            console.log('ranges', ranges, Store)
         })
         //print
         $("#luckysheet-icon-print").click(function(){
@@ -3141,7 +3142,7 @@ const menuButton = {
     },
     updateFormat: function(d, attr, foucsStatus){
         let _this = this;
-
+        debugger
         if(!checkProtectionFormatCells(Store.currentSheetIndex)){
             return;
         }
@@ -3156,7 +3157,9 @@ const menuButton = {
             if (parseInt($("#luckysheet-input-box").css("top")) > 0 ) {
                 let value = $("#luckysheet-input-box").text();
                 if(value.substr(0,1)!="="){
+                    console.log('Store', Store)
                     let cell = d[Store.luckysheetCellUpdate[0]][Store.luckysheetCellUpdate[1]];
+                    console.log('luckysheetformula.rangeResizeTo)', luckysheetformula.rangeResizeTo)
                     updateInlineStringFormat(cell, attr, foucsStatus, luckysheetformula.rangeResizeTo);
                     // return;
                 }
@@ -3188,8 +3191,6 @@ const menuButton = {
                 "RowlChange": true
             }
         }
-        console.log('allParam', allParam)
-        console.log('Store', Store)
         jfrefreshgrid(d, Store.luckysheet_select_save, allParam, false);
     },
     updateFormat_mc: function(d, foucsStatus){
@@ -3455,6 +3456,22 @@ const menuButton = {
             }
             else{
                 $("#luckysheet-icon-underline").removeClass("luckysheet-toolbar-button-hover");
+            }
+        }
+        else if(attr == "sub"){
+            if(foucsStatus != "0"){
+                $("#luckysheet-icon-sup").addClass("luckysheet-toolbar-button-hover");
+            }
+            else{
+                $("#luckysheet-icon-sup").removeClass("luckysheet-toolbar-button-hover");
+            }
+        }
+        else if(attr == "sup"){
+            if(foucsStatus != "0"){
+                $("#luckysheet-icon-sup").addClass("luckysheet-toolbar-button-hover");
+            }
+            else{
+                $("#luckysheet-icon-sup").removeClass("luckysheet-toolbar-button-hover");
             }
         }
         else if(attr == "ff"){
@@ -4484,12 +4501,15 @@ const menuButton = {
                 }
             }
 
-            if(key == "vt" && value != "1"){
+            if(key == "vt"){
                 if(value == "0"){
-                    style += "align-items: center;";
+                    style += "vertical-align: middle;";
                 }
                 else if(value == "2"){
-                    style += "align-items: flex-end;";
+                    style += "vertical-align: bottom;";
+                }
+                else if(value == "1"){
+                    style += "vertical-align: top;";
                 }
             }
         }
