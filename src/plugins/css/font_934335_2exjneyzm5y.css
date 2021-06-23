@@ -120,3 +120,24 @@
 .icon-shuzi:before { content: "\e7f8"; }
 
 .icon-jian2:before { content: "\e64e"; }
+
+
+@font-face {
+  font-family: "wsfont"; /* Project id 2624795 */
+  src: url('//at.alicdn.com/t/font_2624795_cvvjppgvvm.woff2?t=1624328389545') format('woff2'),
+  url('//at.alicdn.com/t/font_2624795_cvvjppgvvm.woff?t=1624328389545') format('woff'),
+  url('//at.alicdn.com/t/font_2624795_cvvjppgvvm.ttf?t=1624328389545') format('truetype');
+}
+
+.wsfont {
+  font-family: "wsfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ws-save:before {
+  content: "\e762";
+}
+

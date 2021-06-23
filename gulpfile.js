@@ -279,8 +279,8 @@ function copyStaticCssImages(){
 const firstUpperCase = ([first, ...rest]) => first.toUpperCase() + rest.join('')
 function replaceCharacter() {
     return src(`${paths.dist}/**`)
-    .pipe(replace('luckysheet', buildTarget))
-    .pipe(replace('Luckysheet', firstUpperCase(buildTarget)))
+    .pipe(replace(/luckysheet/g, buildTarget))
+    .pipe(replace(/Luckysheet/g, firstUpperCase(buildTarget)))
     .pipe(dest(paths.dist))
 }
 function replaceFileName() {

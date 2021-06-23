@@ -9127,6 +9127,7 @@ export default {
         cellFormat:"设置单元格格式",
         print:"打印",
         savePrintRange: '保存打印选区',
+        save: '保存',
     },
     alternatingColors:{
         applyRange: '应用范围',
