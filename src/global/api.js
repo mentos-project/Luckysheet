@@ -155,7 +155,9 @@ export function setCellValue(row, column, value, options = {}) {
         //m: 1, //Display value
         rt:1, //text rotation angle 0-180 alignment
         //f: 1, //formula
-        qp:1 //quotePrefix, show number as string
+        qp:1, //quotePrefix, show number as string
+        sub: 1, // 上标
+        sup: 1, // 下标
     }
 
     if(value == null || value.toString().length == 0){
