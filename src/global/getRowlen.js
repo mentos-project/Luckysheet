@@ -318,6 +318,8 @@ function getCellTextInfo(cell , ctx, option){
 
     ctx.textAlign="start";
 
+
+
     let textContent = {};
     textContent.values = [];
 
@@ -341,6 +343,7 @@ function getCellTextInfo(cell , ctx, option){
                         un:un==null?0:un,
                         wrap:true,
                         fs:fs==null?11:fs,
+                        sub: sub === null? 0: sub,
                     });
                     similarIndex++;
                 }
@@ -356,7 +359,6 @@ function getCellTextInfo(cell , ctx, option){
                             un:un==null?0:un,
                             v: nv,
                             si:similarIndex,
-                            fs:fs==null?11:fs,
                         });
 
                     }
@@ -369,6 +371,7 @@ function getCellTextInfo(cell , ctx, option){
                             un:un==null?0:un,
                             wrap:true,
                             fs:fs==null?11:fs,
+                            sub: sub === null? 0: sub,
                         });
                         similarIndex++;
                     }
@@ -387,6 +390,7 @@ function getCellTextInfo(cell , ctx, option){
         cancelLine = checkstatusByCell(cell ,"cl");//cancelLine
         underLine = checkstatusByCell(cell ,"un");//underLine
         fontSize = checkstatusByCell(cell ,"fs");
+
 
         if(cell instanceof Object){
             value = cell.m;
@@ -477,7 +481,6 @@ function getCellTextInfo(cell , ctx, option){
                 }
 
                 textH_all_Column[colIndex].push(item);
-                console.log("normal",i,colIndex,shareCell, preShareCell, textH_all_Column);
                 preShareCell = shareCell;
 
             }
@@ -554,6 +557,7 @@ function getCellTextInfo(cell , ctx, option){
         textContent.type = "verticalWrap";
         textContent.textWidthAll = textW_all;
         textContent.textHeightAll = textH_all;
+
 
         if(isMode=="onlyWidth"){
             // console.log("verticalWrap", textContent,cell, option);
@@ -1454,6 +1458,7 @@ function getCellTextInfo(cell , ctx, option){
 
         }
         else{
+            debugger
             let measureText = getMeasureText(value, ctx);
             let textWidth = measureText.width;
             let textHeight = measureText.actualBoundingBoxDescent + measureText.actualBoundingBoxAscent;
@@ -1499,16 +1504,18 @@ function getCellTextInfo(cell , ctx, option){
                 top = space_height + measureText.actualBoundingBoxAscent* Math.cos(rtPI) + textWidth * Math.sin(rtPI)*isRotateUp;
             }
 
+
             textContent.type = "plain";
 
             let wordGroup = {
-                content:value,
+                content: value,
                 style:fontset,
                 width:width,
                 height:height,
                 left:left,
                 top:top,
             }
+            console.log('wordGroup', cell, wordGroup)
 
             drawLineInfo(wordGroup, cancelLine, underLine,{
                 width:textWidth,
@@ -1517,7 +1524,7 @@ function getCellTextInfo(cell , ctx, option){
                 top:top,
                 asc:measureText.actualBoundingBoxAscent,
                 desc:measureText.actualBoundingBoxDescent,
-                fs:fontSize,
+                fs: fontSize,
             });
 
             textContent.values.push(wordGroup);
@@ -1531,6 +1538,9 @@ function getCellTextInfo(cell , ctx, option){
             // console.log("plain",left,top);
         }
     }
+
+
+    console.log('textContent', textContent)
 
     return textContent;
 }

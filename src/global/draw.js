@@ -1280,6 +1280,11 @@ let cellRender = function(r, c, start_r, start_c, end_r, end_c, value, luckyshee
     let cellHeight = end_r - start_r - 2;
     let space_width = 2, space_height = 2; //宽高方向 间隙
 
+    // 上标
+    let superscript = menuButton.checkstatus(Store.flowdata, r, c, 'sup');
+
+    let subscript = menuButton.checkstatus(Store.flowdata, r, c, 'sub');
+
     //水平对齐
     let horizonAlign = menuButton.checkstatus(Store.flowdata, r, c, "ht");
     //垂直对齐
@@ -1679,6 +1684,7 @@ let cellRender = function(r, c, start_r, start_c, end_r, end_c, value, luckyshee
         luckysheetTableContent.clip();
         luckysheetTableContent.scale(Store.zoomRatio,Store.zoomRatio);
 
+        console.log('cellRender --- cell', cell)
 
         let textInfo = getCellTextInfo(cell , luckysheetTableContent, {
             cellWidth:cellWidth,
@@ -1688,6 +1694,8 @@ let cellRender = function(r, c, start_r, start_c, end_r, end_c, value, luckyshee
             r:r,
             c:c
         });
+        console.log('cell', cell)
+        debugger
 
         //若单元格有条件格式图标集
         if(checksCF != null && checksCF["icons"] != null && textInfo.type=="plain"){
@@ -1793,6 +1801,7 @@ let cellRender = function(r, c, start_r, start_c, end_r, end_c, value, luckyshee
         luckysheetTableContent.stroke();
         luckysheetTableContent.closePath();
     }
+
 
     // 单元格渲染后
     method.createHookFunction("cellRenderAfter", Store.flowdata[r][c], {

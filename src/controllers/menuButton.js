@@ -2233,7 +2233,7 @@ const menuButton = {
             let d = editor.deepCopyFlowData(Store.flowdata);
             let flag = checkTheStatusOfTheSelectedCells("sub",1);
             let foucsStatus = flag ? 0 : 1;
-
+            debugger
             _this.updateFormat(d, "sub", foucsStatus);
         });
 
@@ -2246,6 +2246,7 @@ const menuButton = {
             let d = editor.deepCopyFlowData(Store.flowdata);
             let flag = checkTheStatusOfTheSelectedCells("un",1);
             let foucsStatus = flag ? 0 : 1;
+            debugger
             _this.updateFormat(d, "un", foucsStatus);
         });
 
@@ -2834,7 +2835,6 @@ const menuButton = {
         $("#luckysheet-icon-print-range").click(function () {
             let ranges = getRangeAxis()
             Store.luckysheetfile[Store.orderbyindex].printAreas = ranges
-            console.log('ranges', ranges, Store)
         })
         //print
         $("#luckysheet-icon-print").click(function(){
@@ -3002,6 +3002,7 @@ const menuButton = {
         return [style, color];
     },
     updateFormatCell:function(d, attr, foucsStatus,row_st, row_ed, col_st, col_ed){
+        debugger
         if(d==null || attr==null){
             return;
         }
@@ -3116,7 +3117,6 @@ const menuButton = {
                 for (let c = col_st; c <= col_ed; c++) {
                     let value = d[r][c];
 
-                    console.log('att22r', attr)
                     if (getObjType(value) == "object") {
                         // if(attr in inlineStyleAffectAttribute && isInlineStringCell(value)){
                             updateInlineStringFormatOutside(value, attr, foucsStatus);
@@ -3142,7 +3142,6 @@ const menuButton = {
     },
     updateFormat: function(d, attr, foucsStatus){
         let _this = this;
-        debugger
         if(!checkProtectionFormatCells(Store.currentSheetIndex)){
             return;
         }
@@ -3157,9 +3156,7 @@ const menuButton = {
             if (parseInt($("#luckysheet-input-box").css("top")) > 0 ) {
                 let value = $("#luckysheet-input-box").text();
                 if(value.substr(0,1)!="="){
-                    console.log('Store', Store)
                     let cell = d[Store.luckysheetCellUpdate[0]][Store.luckysheetCellUpdate[1]];
-                    console.log('luckysheetformula.rangeResizeTo)', luckysheetformula.rangeResizeTo)
                     updateInlineStringFormat(cell, attr, foucsStatus, luckysheetformula.rangeResizeTo);
                     // return;
                 }

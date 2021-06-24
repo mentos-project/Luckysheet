@@ -164,10 +164,10 @@ export function updateInlineStringFormat(cell, attr, value, $input){
 
                 }
                 if (attr === 'sub') {
-                    mid = subNums(mid)
+                    cssText += 'subscript'
 
                 } else if (attr === 'sup') {
-                    mid = supNums(mid)
+                    cssText += 'subscript'
                 }
 
                 cont += "<span style='"+ cssText +"'>" + mid + "</span>";
@@ -262,7 +262,6 @@ export function updateInlineStringFormat(cell, attr, value, $input){
                     cont += "<span style='"+ span.style.cssText +"'>" + content + "</span>";
                 }
 
-                console.log('cont', cont)
                 $textEditor.html(cont);
 
                 // console.log(replaceSpans, cont);
@@ -431,6 +430,7 @@ export function convertSpanToShareString($dom){
 }
 
 export function convertCssToStyleList(cssText){
+    debugger
     if(cssText==null || cssText.length==0){
         return {};
     }
