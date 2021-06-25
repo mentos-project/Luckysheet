@@ -155,8 +155,9 @@ function genCrossPageSeal(number, path) {
         const y = imgHeight
         const width = integralLength
         const height = imgHeight
-        const canvas=$('<canvas width="'+width+'" height="'+height+'"></canvas>')[0], ctx=canvas.getContext('2d');
-        ctx.drawImage(image,x,y,width,height,0,0,width,height);
+        const canvas = $('<canvas width="'+width+'" height="'+height+'"></canvas>')[0]
+        const ctx = canvas.getContext('2d')
+        ctx.drawImage(image,x,y,width,height,0,0,width,height)
         const base64Img = canvas.toDataURL()
         crossPageSeal.push(base64Img)
     }
