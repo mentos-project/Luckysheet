@@ -43,6 +43,7 @@ import {
     getRangeHtml,
 } from '../global/api'
 import method from '../global/method'
+import { printSettingArea } from './print'
 
 const menuButton = {
     "menu": '<div class="luckysheet-cols-menu luckysheet-rightgclick-menu luckysheet-menuButton ${subclass} luckysheet-mousedown-cancel" id="luckysheet-icon-${id}-menuButton">${item}</div>',
@@ -2869,22 +2870,16 @@ const menuButton = {
 
                     if(itemvalue == "print"){ //Print config
                         // alert("print");
-                        const newTab = window.open()
-                        const table = $('#luckysheet-sheettable_0').toDataURL()
-                        newTab.document.write("<br><img src='"+table+"'/>");
-                        newTab.print();
-                        newTab.location.reload();
+                        // const newTab = window.open()
+                        // const table = $('#luckysheet-sheettable_0').toDataURL()
+                        // newTab.document.write("<br><img src='"+table+"'/>");
+                        // newTab.print();
+                        // newTab.location.reload();
+                        printSettingArea()
 
                     }
                     else if(itemvalue == "areas" || itemvalue == "rows" || itemvalue == "columns"){ //range
-                        const newTab = window.open()
-                        const data = getRangeHtml()
-                        newTab.onload = () => {
-                            newTab.document.write(`${data}`);
-                            newTab.print();
-                            // newTab.close();
-                            // newTab.location.reload();
-                        }
+                        printSettingArea()
                     }
                 });
             }

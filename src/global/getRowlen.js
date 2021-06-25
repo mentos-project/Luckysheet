@@ -343,7 +343,6 @@ function getCellTextInfo(cell , ctx, option){
                         un:un==null?0:un,
                         wrap:true,
                         fs:fs==null?11:fs,
-                        sub: sub === null? 0: sub,
                     });
                     similarIndex++;
                 }
@@ -371,7 +370,6 @@ function getCellTextInfo(cell , ctx, option){
                             un:un==null?0:un,
                             wrap:true,
                             fs:fs==null?11:fs,
-                            sub: sub === null? 0: sub,
                         });
                         similarIndex++;
                     }

@@ -5,6 +5,7 @@ import server from './server';
 import {rowLocationByIndex, colLocationByIndex,mouseposition,rowLocation,colLocation} from '../global/location';
 import Store from '../store';
 import { getRangeHtml } from '../global/api'
+import { getSheetIndex } from '../methods/get'
 
 let ExcelPlaceholder = {
     "[tabName]":"&A",
@@ -118,11 +119,14 @@ export function printInitial(){
 }
 
 export function printSettingArea () {
-    const printAreas = Store.luckysheetfile.printAreas
-    const htmlData = getRangeHtml(printAreas)
+    debugger
+    const printAreas = Store.luckysheetfile[0].printAreas || []
+    const tableData = printAreas.map(range => getRangeHtml({range}))
+    const htmlStr = tableData.join('')
     const newTab = window.open()
     newTab.onload = () => {
-        newTab.document.write(`${htmlData}`);
+        const printHtml = `<div style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;background:url('../assets/images/watermark.png') top left repeat transparent;">${htmlStr}</div>`
+        newTab.document.write(`${printHtml}`);
         newTab.print();
         // newTab.close();
         // newTab.location.reload();

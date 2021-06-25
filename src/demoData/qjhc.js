@@ -8875,6 +8875,7 @@ window.testData = [
     "filter": null,
     "luckysheet_conditionformat_save": [],
     "luckysheet_alternateformat_save": [],
+    "printAreas": ["B1:I23"],
     "dataVerification": {},
     "hyperlink": {},
     "celldata": [
