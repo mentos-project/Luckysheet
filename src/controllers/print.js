@@ -4,7 +4,7 @@ import sheetmanage from './sheetmanage';
 import server from './server';
 import {rowLocationByIndex, colLocationByIndex,mouseposition,rowLocation,colLocation} from '../global/location';
 import Store from '../store';
-import { getRangeHtml } from '../global/api'
+import { getRangeAxis, getRangeHtml } from '../global/api'
 import { getSheetIndex } from '../methods/get'
 
 let ExcelPlaceholder = {
@@ -134,5 +134,31 @@ export function printSettingArea () {
 }
 
 export function savePrintSettingArea () {
+    let ranges = getRangeAxis()
+    Store.luckysheetfile[Store.orderbyindex].printAreas = ranges
+}
 
+/**
+ *
+ * @param number 切割多少个
+ * @param path 访问路径
+ */
+function genCrossPageSeal(number, path) {
+    let crossPageSeal = []
+    let image = new Image()
+    image.style = path
+    const imgWidth = image.width
+    const imgHeight = image.height
+    const integralLength = imgWidth / number
+    for (let i = 0; i < number; i++) {gst
+        const x = i * integralLength
+        const y = imgHeight
+        const width = integralLength
+        const height = imgHeight
+        const canvas=$('<canvas width="'+width+'" height="'+height+'"></canvas>')[0], ctx=canvas.getContext('2d');
+        ctx.drawImage(image,x,y,width,height,0,0,width,height);
+        const base64Img = canvas.toDataURL()
+        crossPageSeal.push(base64Img)
+    }
+    return crossPageSeal
 }

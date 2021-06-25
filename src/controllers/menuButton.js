@@ -43,7 +43,7 @@ import {
     getRangeHtml,
 } from '../global/api'
 import method from '../global/method'
-import { printSettingArea } from './print'
+import { printSettingArea, savePrintSettingArea } from './print'
 
 const menuButton = {
     "menu": '<div class="luckysheet-cols-menu luckysheet-rightgclick-menu luckysheet-menuButton ${subclass} luckysheet-mousedown-cancel" id="luckysheet-icon-${id}-menuButton">${item}</div>',
@@ -2834,8 +2834,7 @@ const menuButton = {
         });
         // 保存选区
         $("#luckysheet-icon-print-range").click(function () {
-            let ranges = getRangeAxis()
-            Store.luckysheetfile[Store.orderbyindex].printAreas = ranges
+            savePrintSettingArea()
         })
         //print
         $("#luckysheet-icon-print").click(function(){
