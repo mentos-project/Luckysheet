@@ -139,18 +139,17 @@ export function savePrintSettingArea () {
 }
 
 /**
- *
  * @param number 切割多少个
  * @param path 访问路径
  */
 function genCrossPageSeal(number, path) {
     let crossPageSeal = []
     let image = new Image()
-    image.style = path
+    image.url = path
     const imgWidth = image.width
     const imgHeight = image.height
     const integralLength = imgWidth / number
-    for (let i = 0; i < number; i++) {gst
+    for (let i = 0; i < number; i++) {
         const x = i * integralLength
         const y = imgHeight
         const width = integralLength
