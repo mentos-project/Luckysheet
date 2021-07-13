@@ -6,7 +6,6 @@ import {rowLocationByIndex, colLocationByIndex,mouseposition,rowLocation,colLoca
 import Store from '../store';
 import { getRangeAxis, getRangeHtml } from '../global/api'
 import { getSheetIndex } from '../methods/get'
-
 let ExcelPlaceholder = {
     "[tabName]":"&A",
     "[CurrentDate]":"&D",
@@ -121,11 +120,16 @@ export function printInitial(){
 export function printSettingArea () {
     debugger
     const printAreas = Store.luckysheetfile[0].printAreas || []
-    const tableData = printAreas.map(range => getRangeHtml({range}))
+    const tableData = printAreas.map((range, idx) => {
+        let page = getRangeHtml({ range })
+        page = `<div style="page-break-after: always;background:url('../assets/images/watermark.png') top left repeat transparent;">${page}</div>`
+        return page
+    })
     const htmlStr = tableData.join('')
     const newTab = window.open()
     newTab.onload = () => {
-        const printHtml = `<div style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;background:url('../assets/images/watermark.png') top left repeat transparent;">${htmlStr}</div>`
+        // const printHtml = `<div style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;background:url('../assets/images/watermark.png') top left repeat transparent;">${htmlStr}</div>`
+        const printHtml = `${htmlStr}`
         newTab.document.write(`${printHtml}`);
         newTab.print();
         // newTab.close();
@@ -135,7 +139,12 @@ export function printSettingArea () {
 
 export function savePrintSettingArea () {
     let ranges = getRangeAxis()
-    Store.luckysheetfile[Store.orderbyindex].printAreas = ranges
+    const alreadyExitPrintAreas = Store.luckysheetfile[Store.orderbyindex].printAreas
+    if (alreadyExitPrintAreas && alreadyExitPrintAreas.length > 0) {
+        Store.luckysheetfile[Store.orderbyindex].printAreas.push(...ranges)
+    } else {
+        Store.luckysheetfile[Store.orderbyindex].printAreas = [...ranges]
+    }
 }
 
 /**
@@ -149,7 +158,7 @@ function genCrossPageSeal(number, path) {
     const imgWidth = image.width
     const imgHeight = image.height
     const integralLength = imgWidth / number
-    for (let i = 0; i < number; i++) {
+    for (let i = 1; i < number; i++) {
         const x = i * integralLength
         const y = imgHeight
         const width = integralLength
@@ -162,3 +171,4 @@ function genCrossPageSeal(number, path) {
     }
     return crossPageSeal
 }
+
